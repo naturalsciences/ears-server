@@ -1,0 +1,32 @@
+version: '3'
+services:
+  tomcat:
+    build: .
+    environment:
+      - TOMCAT_USERNAME=jean
+      - TOMCAT_PASSWORD=password
+    depends_on:
+      - "mysql"
+    links: 
+      - "mysql"
+    ports:
+      - 8181:8080
+    command: ["./wait-for-mysql.sh", mysql, "3306", "root", "wzka684l7i", "casino", "catalina.sh", "run"]
+    volumes:
+     - ./ears2.war:/usr/local/tomcat/webapps/ears2.war
+#     - ./ears2Nav.war:/usr/local/tomcat/webapps/ears2Nav.war
+#     - ./ears2Ont.war:/usr/local/tomcat/webapps/ears2Ont.war
+  mysql:
+    image: mariadb:10.4.7-bionic
+    ports:
+      - "3307:3306"
+    #restart: always
+    environment:
+      - MYSQL_DATABASE=casino
+      - MYSQL_ROOT_PASSWORD=wzka684l7i
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_PASSWORD=casino
+      - MYSQL_USER=casino
+    volumes:
+      - ./ears_ddl.sql:/docker-entrypoint-initdb.d/ears_ddl.sql
+#      - /opt/mysql_data:/var/lib/mysql
