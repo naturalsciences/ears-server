@@ -1,25 +1,35 @@
-version: '3'
+version: '3.5'
+#networks:
+#  localhost:
+#    external: false
+#    name: localhost
 services:
   tomcat:
+#    networks:
+#    - localhost
     build: .
     environment:
       - TOMCAT_USERNAME=jean
       - TOMCAT_PASSWORD=password
     depends_on:
       - "mysql"
-    links: 
-      - "mysql"
-    ports:
-      - 8181:8080
+    #links: 
+    #  - "mysql"
+    network_mode: "service:mysql"
+    #ports:
+    #  - 8181:8080
     command: ["./wait-for-mysql.sh", mysql, "3306", "root", "wzka684l7i", "casino", "catalina.sh", "run"]
     volumes:
      - ./ears2.war:/usr/local/tomcat/webapps/ears2.war
 #     - ./ears2Nav.war:/usr/local/tomcat/webapps/ears2Nav.war
 #     - ./ears2Ont.war:/usr/local/tomcat/webapps/ears2Ont.war
   mysql:
+#    networks:
+#    - localhost
     image: mariadb:10.4.7-bionic
     ports:
-      - "3307:3306"
+      - 3307:3306
+      - 8181:8080
     #restart: always
     environment:
       - MYSQL_DATABASE=casino
