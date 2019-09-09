@@ -1,36 +1,39 @@
+# This setup creates a MySQL container from scratch and populates it with the needed tables. 
+# The tomcat container depends on it (see the depends_on keyword). 
+# Furthermore The tomcat main command (catalina.sh) is not run before the MySQL database is populated; this is done via the wait_for_mysql.sh script. 
+# Both containers share the same IP address (localhost). This is done as localhost is hardcoded inside the swing java code 
+# The SQL data is persisted outside of the MySQL container
+
+# The 'restart: always' keywords ensure that both services are restarted always after each crash or system reboot, as long as the docker daemon is running. sudo docker stop <id> will actually stop the application, and it will not be restarted automatically.
 version: '3.5'
-#networks:
-#  localhost:
-#    external: false
-#    name: localhost
 services:
   tomcat:
-#    networks:
-#    - localhost
     build: .
     environment:
-      - TOMCAT_USERNAME=jean
-      - TOMCAT_PASSWORD=password
+      - EARS_JDBC_URL=jdbc:mysql://localhost:3306/casino
+      - EARS_DB_CLASS=com.mysql.cj.jdbc.Driver
+      - EARS_DB_USER=casino
+      - EARS_DB_PASS=casino
+      - ACQUISITION_JDBC_URL=jdbc:mysql://localhost:3306/casino
+      - ACQUISITION_DB_CLASS=com.mysql.cj.jdbc.Driver
+      - ACQUISITION_DB_USER=casino
+      - ACQUISITION_DB_PASS=casino
     depends_on:
       - "mysql"
-    #links: 
-    #  - "mysql"
-    network_mode: "service:mysql"
-    #ports:
-    #  - 8181:8080
+    network_mode: "service:mysql" 
     command: ["./wait-for-mysql.sh", mysql, "3306", "root", "wzka684l7i", "casino", "catalina.sh", "run"]
+    restart: always
     volumes:
-     - ./ears2.war:/usr/local/tomcat/webapps/ears2.war
-#     - ./ears2Nav.war:/usr/local/tomcat/webapps/ears2Nav.war
+     - ./setenv.sh:/usr/local/tomcat/bin/setenv.sh
+     - ./context.xml:/usr/local/tomcat/conf/context.xml
+#     - ./ears2.war:/usr/local/tomcat/webapps/ears2.war
+     - ./ears2Nav.war:/usr/local/tomcat/webapps/ears2Nav.war
 #     - ./ears2Ont.war:/usr/local/tomcat/webapps/ears2Ont.war
   mysql:
-#    networks:
-#    - localhost
     image: mariadb:10.4.7-bionic
     ports:
       - 3307:3306
       - 8181:8080
-    #restart: always
     environment:
       - MYSQL_DATABASE=casino
       - MYSQL_ROOT_PASSWORD=wzka684l7i
@@ -39,4 +42,14 @@ services:
       - MYSQL_USER=casino
     volumes:
       - ./ears_ddl.sql:/docker-entrypoint-initdb.d/ears_ddl.sql
-#      - /opt/mysql_data:/var/lib/mysql
+      - /opt/ears_mysql_data:/var/lib/mysql
+    restart: always
+  acquisition:
+    build:
+      context: ./Acquisition_System/bin
+    depends_on:
+      - "mysql"
+    network_mode: "service:mysql" 
+    command: ./startup.sh acquisition 
+    #["./wait-for-mysql.sh", mysql, "3306", "root", "wzka684l7i", "casino", "./Acquisition_System/bin/startup.sh acquisition"]
+    restart: always
