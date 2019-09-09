@@ -15,9 +15,7 @@ FROM openjdk:8
 
 #WORKDIR /etc/nsa/
 
-WORKDIR ./
-
 #RUN sed -i -e 's/\r$//' *.sh
 
 # Start all
-ENTRYPOINT ./startup.sh all
+CMD /bin/bash -c "./startup.sh all"
