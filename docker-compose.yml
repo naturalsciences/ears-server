@@ -34,6 +34,7 @@ services:
     ports:
       - 3307:3306
       - 8181:8080
+      - 3101:3101/udp
     environment:
       - MYSQL_DATABASE=casino
       - MYSQL_ROOT_PASSWORD=wzka684l7i
@@ -47,9 +48,11 @@ services:
   acquisition:
     build:
       context: ./Acquisition_System/bin
+    environment:
+      - ACQUISITION_SERVER=mysql
     depends_on:
       - "mysql"
-    network_mode: "service:mysql" 
+    #network_mode: "service:mysql" 
     command: ./startup.sh acquisition 
     #["./wait-for-mysql.sh", mysql, "3306", "root", "wzka684l7i", "casino", "./Acquisition_System/bin/startup.sh acquisition"]
     restart: always

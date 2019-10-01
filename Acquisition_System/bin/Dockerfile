@@ -15,7 +15,8 @@ FROM openjdk:8
 
 #WORKDIR /etc/nsa/
 
-WORKDIR ./
+COPY . /acquisition
+WORKDIR /acquisition
 
 #RUN sed -i -e 's/\r$//' *.sh
 
