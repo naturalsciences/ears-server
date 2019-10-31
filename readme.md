@@ -1,7 +1,7 @@
 # Installation of the EARS server
 
 ## Prerequisites
-Linux with docker installed. Not yet tested on docker on Windows
+Linux with docker installed. Not yet tested on docker on Windows.
 
 ## Install docker
 Ubuntu: Follow the guidelines on https://docs.docker.com/install/linux/docker-ce/ubuntu/
@@ -18,7 +18,8 @@ cd ears-server
 sudo docker-compose build
 sudo docker up -d
 ```
-Wait some moments
+Wait some moments, then go to localhost:8181/ears2/getEvents and all other web verbs
+
 ## Kill the docker images if needed
 ```sudo docker kill ears-server_acquisition_1 ears-server_tomcat_1 ears-server_mysql_1```
 
