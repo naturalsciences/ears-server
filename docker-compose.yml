@@ -26,9 +26,9 @@ services:
     volumes:
      - ./setenv.sh:/usr/local/tomcat/bin/setenv.sh
      - ./context.xml:/usr/local/tomcat/conf/context.xml
-#     - ./ears2.war:/usr/local/tomcat/webapps/ears2.war
+     - ./ears2.war:/usr/local/tomcat/webapps/ears2.war
      - ./ears2Nav.war:/usr/local/tomcat/webapps/ears2Nav.war
-#     - ./ears2Ont.war:/usr/local/tomcat/webapps/ears2Ont.war
+     - ./ears2Ont.war:/usr/local/tomcat/webapps/ears2Ont.war
   mysql:
     image: mariadb:10.4.7-bionic
     ports:

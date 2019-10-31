@@ -522,7 +522,7 @@
             {
                 "name": "turbidityL",		  
                 "longName": "turbidityL",
-                "units": "Kg\/m3",
+                "units": "FTU",
                 "type": "float",
                 "positive": "unknown",
                 "cardinalityMin": 1,
@@ -543,7 +543,7 @@
             {
                 "name": "turbidityH",		  
                 "longName": "turbidityH",
-                "units": "Kg\/m3",
+                "units": "FTU",
                 "type": "float",
                 "positive": "unknown",
                 "cardinalityMin": 1,
@@ -564,7 +564,7 @@
             {
                 "name": "OBS L",		  
                 "longName": "Low turbidity by optical backscatter point sensor",
-                "units": "Kg\/m3",
+                "units": "FTU",
                 "type": "float",
                 "positive": "unknown",
                 "cardinalityMin": 1,
@@ -627,6 +627,7 @@
             {
                 "name": "Blue Algae",		  
                 "longName": "Blue algae concentration", 
+                "units": "µg/l",
                 "type": "float",
                 "positive": "unknown",
                 "cardinalityMin": 1,
