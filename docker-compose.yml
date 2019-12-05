@@ -25,6 +25,7 @@ services:
     restart: always
     volumes:
      - ./setenv.sh:/usr/local/tomcat/bin/setenv.sh
+     - ./ontologies:/var/www/ears2
      - ./context.xml:/usr/local/tomcat/conf/context.xml
      - ./ears2.war:/usr/local/tomcat/webapps/ears2.war
      - ./ears2Nav.war:/usr/local/tomcat/webapps/ears2Nav.war
@@ -43,7 +44,7 @@ services:
       - MYSQL_USER=casino
     volumes:
       - ./ears_ddl.sql:/docker-entrypoint-initdb.d/ears_ddl.sql
-      - /opt/ears_mysql_data:/var/lib/mysql
+      - ./ears_mysql_data:/var/lib/mysql
     restart: always
   acquisition:
     build:

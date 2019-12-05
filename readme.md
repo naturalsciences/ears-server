@@ -13,13 +13,13 @@ cd <installation directory>
 git clone https://github.com/naturalsciences/ears-server.git
 cd ears-server
 ```
-## Create the docker container and run the image
+## Create the docker container and run the image, in detached (-d) mode
 ```
 sudo docker-compose build
-sudo docker up -d
+sudo docker-compose up -d
 ```
-Wait some moments, then go to localhost:8181/ears2/getEvents and all other web verbs
+Wait some moments (a minute or so), then go to localhost:8181/ears2/getEvents and all other web verbs. Replace localhost:8181 with the server IP adress
 
-## Kill the docker images if needed
+## If you need to kill the docker images, for instance if you make a change in the Dockerfile 
 ```sudo docker kill ears-server_acquisition_1 ears-server_tomcat_1 ears-server_mysql_1```
 
