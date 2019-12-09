@@ -13,6 +13,16 @@ cd <installation directory>
 git clone https://github.com/naturalsciences/ears-server.git
 cd ears-server
 ```
+
+## Set the username and password of admin users so that the vessel ontology can be saved on the EARS server
+Only to save the vessel ontology this password and username is needed. This username and password needs to be provided in the EARS front-end application as well.
+ 
+Modify these lines in the Dockerfile to your username and password:
+
+RUN echo 'be.naturalsciences.bmdc.ears.ontology.rest.username=earsontology' > /etc/.java/ears.properties
+RUN echo 'be.naturalsciences.bmdc.ears.ontology.rest.password=REPLACEME' >> /etc/.java/ears.properties
+
+
 ## Create the docker container and run the image, in detached (-d) mode
 ```
 sudo docker-compose build
