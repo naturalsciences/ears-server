@@ -6,11 +6,11 @@
         },
         {
             "name": "PSDGMET01",
-            "url": "udp://255.255.255.255:3102"
+            "url": "udp://localhost:3102"
         },
         {
             "name": "PSDGTSS01",
-            "url": "udp://255.255.255.255:3103"
+            "url": "udp://localhost:3103"
         }
     ],
     "devices": [

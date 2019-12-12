@@ -42,6 +42,12 @@ and note the value for the key "IPAddress".
 
 Create a new connection in MySQL Workbench towards this IP address, using as database name 'casino', user 'casino' and password 'casino'.
 
+## Adresses
+
+The EARS webservices are reachable on http://localhost (=port 80) and the acquisition server on http://localhost:8080 . You can modify these ports in the .env file. If a port is already taken, you either change the port in the .env file, or preferrably kill the application that takes the port. In order to find applications using a port, use eg.
+```sudo netstat -tulpn | grep 8080```, note the pid in the last column and then
+```sudo kill <pid>```
+
 ## Troubleshooting
 
 Read the logs of the acquisition module like so: sudo docker logs ears-server_acquisition
