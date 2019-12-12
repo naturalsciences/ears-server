@@ -35,7 +35,7 @@ services:
     ports:
       - 3307:3306
       - 8181:8080
-      - 3101:3101/udp
+#      - 3101:3101/udp
     environment:
       - MYSQL_DATABASE=casino
       - MYSQL_ROOT_PASSWORD=wzka684l7i
@@ -49,6 +49,7 @@ services:
   acquisition:
     build:
       context: ./Acquisition_System/bin
+    network_mode: "host"
     environment:
       - ACQUISITION_SERVER=mysql
     depends_on:

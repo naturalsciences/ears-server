@@ -2,7 +2,7 @@
     "channels": [
         {
             "name": "PSDGPOS01",
-            "url": "udp://255.255.255.255:3101"
+            "url": "udp://localhost:3101"
         },
         {
             "name": "PSDGMET01",

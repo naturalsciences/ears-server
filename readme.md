@@ -18,10 +18,10 @@ cd ears-server
 Only to save the vessel ontology this password and username is needed. This username and password needs to be provided in the EARS front-end application as well.
  
 Modify these lines in the Dockerfile to your username and password:
-
+```
 RUN echo 'be.naturalsciences.bmdc.ears.ontology.rest.username=earsontology' > /etc/.java/ears.properties
 RUN echo 'be.naturalsciences.bmdc.ears.ontology.rest.password=REPLACEME' >> /etc/.java/ears.properties
-
+```
 
 ## Create the docker container and run the image, in detached (-d) mode
 ```
@@ -33,3 +33,11 @@ Wait some moments (a minute or so), then go to localhost:8181/ears2/getEvents an
 ## If you need to kill the docker images, for instance if you make a change in the Dockerfile 
 ```sudo docker kill ears-server_acquisition_1 ears-server_tomcat_1 ears-server_mysql_1```
 
+## View the database, e.g. with MySQL Workbench
+First retrieve the ip address of the MySQL container:
+```
+sudo docker inspect ears-server_mysql_1
+```
+and note the value for the key "IPAddress".
+
+Create a new connection in MySQL Workbench towards this IP address, using as database name 'casino', user 'casino' and password 'casino'.
