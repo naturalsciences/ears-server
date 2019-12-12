@@ -36,7 +36,7 @@ Wait some moments (a minute or so), then go to localhost:8181/ears2/getEvents an
 ## View the database, e.g. with MySQL Workbench
 First retrieve the ip address of the MySQL container:
 ```
-sudo docker inspect ears-server_mysql_1
+sudo docker inspect ears-server_mysql
 ```
 and note the value for the key "IPAddress".
 
@@ -44,4 +44,4 @@ Create a new connection in MySQL Workbench towards this IP address, using as dat
 
 ## Troubleshooting
 
-Read the logs of the acquisition module like so: sudo docker logs ears-server_acquisition_1
+Read the logs of the acquisition module like so: sudo docker logs ears-server_acquisition
