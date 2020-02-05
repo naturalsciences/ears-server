@@ -172,7 +172,7 @@ DROP TABLE IF EXISTS `TOOL`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `TOOL` (
   `ID` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
   `idSuper` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_superID_idx` (`idSuper`),

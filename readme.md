@@ -7,6 +7,14 @@ Linux with docker installed. Not yet tested on docker on Windows.
 Ubuntu: Follow the guidelines on https://docs.docker.com/install/linux/docker-ce/ubuntu/
 Debian, CentOS, Fedora also available
 
+## Install docker-compose
+https://linuxize.com/post/how-to-install-and-use-docker-compose-on-ubuntu-18-04/
+```
+ sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+ sudo chmod +x /usr/local/bin/docker-compose
+ docker-compose --version
+```
+
 ## Get the source code for the EARS server
 ```
 cd <installation directory>

@@ -63,6 +63,7 @@ services:
       - ACQUISITION_DATABASE_PORT=3307
       - ACQUISITION_DB_USER=${ACQUISITION_DB_USER}
       - ACQUISITION_DB_PASS=${ACQUISITION_DB_PASS}
+      - NTP_HOST=${NTP_HOST}
     depends_on:
       - "mysql"
     command: ./startup.sh acquisition 
