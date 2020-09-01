@@ -64,7 +64,9 @@ services:
       - ACQUISITION_DB_USER=${ACQUISITION_DB_USER}
       - ACQUISITION_DB_PASS=${ACQUISITION_DB_PASS}
       - NTP_HOST=${NTP_HOST}
+    volumes:
+      - ./netcdf:/acquisition/log/netcdf
     depends_on:
       - "mysql"
-    command: ./startup.sh acquisition 
+    command: ./startup.sh all 
     restart: always

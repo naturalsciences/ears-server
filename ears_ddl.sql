@@ -52,7 +52,7 @@ CREATE TABLE `CRUISE` (
   `cruiseId` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `cruiseName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `endDate` timestamp NULL DEFAULT NULL,
-  `objectives` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `objectives` varchar(5000) COLLATE utf8_unicode_ci DEFAULT NULL,
   `platformClass` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `platformCode` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
   `startDate` timestamp NULL DEFAULT NULL,
@@ -111,7 +111,7 @@ CREATE TABLE `PROGRAM` (
   `CruiseId` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `originatorCode` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `PIName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` varchar(5000) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `unique_program_cruise` (`ProgramId`,`CruiseId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
