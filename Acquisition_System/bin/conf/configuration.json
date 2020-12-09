@@ -40,13 +40,13 @@
                         "converterClassName": "fr.ifremer.acquisition.driver.converter.impl.nmea.PSDGPOSConverter",
                         "header": "$PSDGPOS",
                         "fields": {
+                            "psdgpos:long": 3,
                             "psdgpos:lat": 4,
                             "psdgpos:head": 5,
+                            "psdgpos:speed": 6
+                            "psdgpos:depth": 7,
                             "psdgpos:cog": 8,
                             "psdgpos:sog": 9,
-                            "psdgpos:depth": 7,
-                            "psdgpos:long": 3,
-                            "psdgpos:speed": 6
                         },
                         "parameters": {
                             "separator": ","
@@ -128,11 +128,11 @@
                         "converterClassName": "fr.ifremer.acquisition.driver.converter.impl.nmea.PSDGTSSConverter",
                         "header": "$PSDGTSS",
                         "fields": {
-                            "psdgtss:salinity": 4,
-                            "psdgtss:watertemp": 3,
-                            "psdgtss:fluo": 7,
+                            "psdgtss:salinity": 3,
+                            "psdgtss:watertemp": 4,
+                            "psdgtss:fluo": 5,
                             "psdgtss:conduct": 6,
-                            "psdgtss:sigmat": 5
+                            "psdgtss:sigmat": 7
                         },
                         "parameters": {
                             "separator": ","
