@@ -12,6 +12,8 @@ services:
   tomcat:
     build: .
     container_name: "ears-server_tomcat"
+    logging:
+      driver: "syslog"
     environment:
       - EARS_JDBC_URL=jdbc:mysql://localhost:3306/casino
       - EARS_DB_CLASS=com.mysql.cj.jdbc.Driver
@@ -54,6 +56,8 @@ services:
     build:
       context: ./Acquisition_System/bin
     container_name: "ears-server_acquisition"
+    logging:
+      driver: "syslog"
     network_mode: "host" 
     #integrate with host to receive udp
     ports:
