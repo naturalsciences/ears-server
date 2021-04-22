@@ -1,4 +1,6 @@
 ears_mysql_data
 ontologies
 netcdf
+log
 Acquisition_System/bin/log
+run-hidden.sh
