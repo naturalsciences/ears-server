@@ -162,15 +162,7 @@ http://localhost:8181/ears2/getEvent
 
 http://localhost:8181/ears2/getCruise
 
-http://localhost:8181/ears2Nav/getCruiseInfoSSR
-
-http://localhost:8181/ears2Nav/getLast24hMet
-
-http://localhost:8181/ears2Nav/getLast24hTss
-
-http://localhost:8181/ears2Nav/getLast24hNav
-
-http://localhost:8181/ears2Nav/getLast24hEvt
+http://localhost:8181/ears2Nav/getLastNavXml
 
 http://localhost:8080 for the acquisition server
 

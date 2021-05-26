@@ -43,7 +43,7 @@
                             "psdgpos:long": 3,
                             "psdgpos:lat": 4,
                             "psdgpos:head": 5,
-                            "psdgpos:speed": 6
+                            "psdgpos:speed": 6,
                             "psdgpos:depth": 7,
                             "psdgpos:cog": 8,
                             "psdgpos:sog": 9,
