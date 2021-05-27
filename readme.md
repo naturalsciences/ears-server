@@ -164,6 +164,10 @@ http://localhost:8181/ears2/getCruise
 
 http://localhost:8181/ears2Nav/getLastNavXml
 
+http://localhost:8181/ears2Nav/getLast24hMet
+
+http://localhost:8181/ears2Nav/getLastTssSSR
+
 http://localhost:8080 for the acquisition server
 
 Replace localhost:8080 localhost:8181 with the server&#39;s IP adress and the actual port you have configured (see lower).
